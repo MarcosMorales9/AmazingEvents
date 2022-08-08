@@ -8,11 +8,11 @@ let checkBoxFilter = []; // en esta variable con una array vacia es donde vamos 
 async function getData(){
     await fetch("https://amazing-events.herokuapp.com/api/events")
     .then(response => response.json())
-    .then(data => xd = data);
+    .then(data => events = data);
 
-    arrayEventos = xd.events
-    fechaActual= xd.currentDate
-    console.log(fechaActual)
+    arrayEventos = events.events
+    fechaActual= events.currentDate
+    // console.log(fechaActual)
     // el filtrado lo movemos dentro del async    
     checkBoxd();
     var checkBOXZ = document.querySelectorAll(`[type=checkbox]`);

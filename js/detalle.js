@@ -14,7 +14,7 @@ async function getData(){
     detail(arrayEventos)
 
 
-console.log(arrayEventos);
+// console.log(arrayEventos);
 
 function detail() {
 

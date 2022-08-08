@@ -22,13 +22,13 @@ async function getDataApi() {
         })
     })
     let max = porcentajes.sort((a, b) => b.porAssistance - a.porAssistance)[0]
-    console.log(max);
+    // console.log(max);
 
     let min = porcentajes.sort((a, b) => a.porAssistance - b.porAssistance)[0]
-    console.log(min);
+    // console.log(min);
 
     let capacity = pastEvents.filter(e=>e.capacity).sort((a,b) => b.capacity - a.capacity)[0]
-    console.log(capacity);
+    // console.log(capacity);
 /* EVENTOS FUTURO*/
     const categoryAssistFuture = futureEvents.map(events => events.category)
     const categorySetFuture = new Set(categoryAssistFuture)
@@ -42,7 +42,7 @@ async function getDataApi() {
             evento: futureEvents.filter(evento => evento.category === category), // tenemos las categorias que tienen adentro todos los eventos pasados
         })
     )
-console.log(categoryValueFuture);
+// console.log(categoryValueFuture);
 
 let estimateAndCapacityFuture = [] // a la anterior mapeamos en un array de cada evento y la assitencia y la capacidad y revenue 
 categoryValueFuture.map(datardos => {
@@ -53,7 +53,7 @@ categoryValueFuture.map(datardos => {
         estimateRevenue: datardos.evento.map(item => item.estimate * item.price)
     })
 })
-console.log(estimateAndCapacityFuture);
+// console.log(estimateAndCapacityFuture);
 
 estimateAndCapacityFuture.forEach(category => { // separamos por categoria
     let totalEstimate = 0
@@ -70,7 +70,7 @@ estimateAndCapacityFuture.forEach(category => { // separamos por categoria
 
     category.porcentaje = ((totalEstimate * 100) / totalCapacityFuture).toFixed(2) //se le agrega una prop  % de asistencias por categoria
 })
-console.log(estimateAndCapacityFuture);
+// console.log(estimateAndCapacityFuture);
     /////////////// EVENTS PAST //////////////////
     let categoryByAssist = arrayEventos.map(e => e.category); // agarramos las categorias del pasado
     let categorySet = new Set(categoryByAssist); // eliminamos las categorias repetidas
@@ -83,7 +83,7 @@ console.log(estimateAndCapacityFuture);
             evento: pastEvents.filter(evento => evento.category === category), // tenemos las categorias que tienen adentro todos los eventos pasados
         })
     )
-        console.log(categoryValue);
+        // console.log(categoryValue);
 
     let assistAndCapacity = [] // a la anterior mapeamos en un array de cada evento y la assitencia y la capacidad y revenue 
     categoryValue.map(datardos => {
@@ -95,7 +95,7 @@ console.log(estimateAndCapacityFuture);
         })
     })
 
-    console.log(assistAndCapacity);
+    // console.log(assistAndCapacity);
 
     // sumamos los elementos entre si osea assitance, capacity y revenue
     assistAndCapacity.forEach(category => { // separamos por categoria
@@ -113,8 +113,8 @@ console.log(estimateAndCapacityFuture);
 
         category.porcentaje = ((totalAssist * 100) / totalCapacity).toFixed(2) //se le agrega una prop  % de asistencias por categoria
     })
-    console.log(assistAndCapacity);
-    console.log(categoryValue);
+    // console.log(assistAndCapacity);
+    // console.log(categoryValue);
 
 /* imp tablas */
 

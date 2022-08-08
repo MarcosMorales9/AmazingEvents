@@ -7,14 +7,14 @@ let checkBoxFilter = [];
 
 getData()
 
-let xd;
+// let events;
 
 async function getData(){
     await fetch("https://amazing-events.herokuapp.com/api/events")
     .then(response => response.json())
-    .then(data => xd = data);
+    .then(data => events = data);
  // el orden de esto es importante para que se ejecute de manera correcta en el async ya que si no tenemos checkBoxd no podriamos usar el filter 
-    arrayEventos = xd.events
+    arrayEventos = events.events
     checkBoxd();
 
     ///////////////////////////////////////
@@ -34,7 +34,7 @@ checkBOXZ.forEach(check => check.addEventListener("click", (event) => {
     }
 }))
 filtradoComb(arrayEventos)
-    console.log(arrayEventos)
+    // console.log(arrayEventos)
 
 }
 ///////////////////////////////////////////  CARDS /////////////////////////////////////////

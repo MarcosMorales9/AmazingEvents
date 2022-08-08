@@ -7,10 +7,10 @@ let checkBoxFilter = []
 async function DisplayAPI() {
     await fetch("https://amazing-events.herokuapp.com/api/events")
         .then(response => response.json())
-        .then(data => xd = data)
+        .then(data => events = data)
 
-    arrayEventos = xd.events
-    fechaActual = xd.currentDate
+    arrayEventos = events.events
+    fechaActual = events.currentDate
 
     // llamamos a la funcion que crea los checksbox
     checkBoxd();
